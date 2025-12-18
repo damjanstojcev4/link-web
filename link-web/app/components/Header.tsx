@@ -11,11 +11,25 @@ const Navbar = () => {
   const pathname = usePathname();
   const router = useRouter();
 
-  const handleScroll = (id: string) => {
+  const handleScroll = async (id: string) => {
     setIsOpen(false);
 
+    // special-case 'home' -> scroll to top
+    if (id === "home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    // If we're not on the root route, navigate to it first, then scroll.
     if (pathname !== "/") {
-      router.push(`/#${id}`);
+      await router.push("/");
+
+      // wait a tick to allow the DOM to render
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 50);
+
       return;
     }
 
@@ -29,7 +43,14 @@ const Navbar = () => {
 
         {/* Logo */}
         <div className="flex items-center gap-3 cursor-pointer">
-          <Link href="/" onClick={() => handleScroll("home")}>
+          <Link
+            href="/"
+            onClick={(e) => {
+              // prevent Link from performing a navigation; we want smooth in-page scroll
+              e.preventDefault();
+              handleScroll("home");
+            }}
+          >
             <Image
               src={logo}
               alt="Logo"
@@ -51,19 +72,19 @@ const Navbar = () => {
 
         {/* Desktop nav */}
         <ul className="hidden lg:flex gap-6 text-white font-semibold">
-          <li className="cursor-pointer hover:text-teal-300" onClick={() => handleScroll("hero")}>
+          <li className="cursor-pointer hover:text-yellow-300" onClick={() => handleScroll("hero")}>
             Почетна
           </li>
-          <li className="cursor-pointer hover:text-teal-300" onClick={() => handleScroll("collection")}>
+          <li className="cursor-pointer hover:text-yellow-300" onClick={() => handleScroll("collection")}>
             Колекција
           </li>
-          <li className="cursor-pointer hover:text-teal-300" onClick={() => handleScroll("about")}>
+          <li className="cursor-pointer hover:text-yellow-300" onClick={() => handleScroll("about")}>
             За нас
           </li>
-          <li className="cursor-pointer hover:text-teal-300" onClick={() => handleScroll("where")}>
+          <li className="cursor-pointer hover:text-yellow-300" onClick={() => handleScroll("where")}>
             Каде сме
           </li>
-          <li className="cursor-pointer hover:text-teal-300" onClick={() => handleScroll("contact")}>
+          <li className="cursor-pointer hover:text-yellow-300" onClick={() => handleScroll("contact")}>
             Контакт
           </li>
         </ul>
