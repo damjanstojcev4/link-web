@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
+import Navbar from "./components/Header";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -24,10 +26,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        
+        {/* ✅ Navbar appears on every page */}
+        <Navbar />
+
+        {/* Page content */}
+        <main className="pt-24"> 
+          {/* Add padding-top so content isn't hidden behind fixed navbar */}
+          {children}
+        </main>
+
       </body>
     </html>
   );
