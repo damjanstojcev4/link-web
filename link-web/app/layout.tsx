@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Linkesti | Premium Fashion Bitola",
+  title: "Linkesti",
   description: "Препознатлив моден избор во Битола со доследност, искреност и квалитет.",
   icons: {
     icon: "/linkesti-logo.jpg", 

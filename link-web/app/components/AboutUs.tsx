@@ -11,19 +11,8 @@ const AboutUs = () => {
     >
       <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         
-        {/* Left Side: Image with Rounded Corners */}
-        <div className="relative w-full aspect-[4/5] md:aspect-square lg:aspect-[4/5] overflow-hidden rounded-[40px]">
-          <Image
-            src={aboutImg}
-            alt="About Linkesti"
-            fill
-            className="object-cover"
-            placeholder="blur"
-          />
-        </div>
-
-        {/* Right Side: Text Content */}
-        <div className="flex flex-col justify-center space-y-8 text-white">
+        {/* Text Content - Appears FIRST on mobile */}
+        <div className="flex flex-col justify-center space-y-8 text-white order-1 lg:order-2">
           <h2 className="text-5xl md:text-7xl font-normal tracking-wide">
             Кои сме ние?
           </h2>
@@ -41,6 +30,18 @@ const AboutUs = () => {
               квалитетот и естетиката што не подлегнува на времето.
             </p>
           </div>
+        </div>
+
+        {/* Image - Appears BELOW the text on mobile */}
+        <div className="relative w-full aspect-[4/5] md:aspect-square lg:aspect-[4/5] overflow-hidden rounded-[40px] order-2 lg:order-1">
+          <Image
+            src={aboutImg}
+            alt="About Linkesti"
+            fill
+            className="object-cover"
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==" 
+          />
         </div>
 
       </div>
