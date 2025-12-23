@@ -5,12 +5,12 @@ import React from "react";
 import { motion, Variants } from "framer-motion";
 
 const collections = [
-  { title: "Casual Elegance", subtitle: "Стил за секој ден", image: "/g16.png" },
+  { title: "Casual Elegance", subtitle: "Стил за секој ден", image: "/IMG_0532.jpg" },
   { title: "Business Style", subtitle: "За успешниот човек", image: "/g10.jpg" },
   { title: "Formal Collection", subtitle: "За посебни прилики", image: "/g8.jpg" },
-  { title: "Prom & Events", subtitle: "За незаборавни моменти", image: "/g2.jpg" },
-  { title: "Urban Style", subtitle: "Модерна елеганција", image: "/g7.jpg" },
-  { title: "Summer Collection", subtitle: "Летна софистицираност", image: "/g18.jpg" },
+  { title: "Prom & Events", subtitle: "За незаборавни моменти", image: "/IMG_1724.jpeg" },
+  { title: "Urban Style", subtitle: "Модерна елеганција", image: "/IMG_1076.jpeg" },
+  { title: "Summer Collection", subtitle: "Летна софистицираност", image: "/IMG_0451.jpg" },
   { title: "Contemporary Look", subtitle: "Смена боја, современ крој", image: "/g15.jpeg" },
   { title: "Professional Edge", subtitle: "Доверба во секоја ситуација", image: "/g17.jpeg" },
   { title: "Sophisticated Occasions", subtitle: "Луксуз за специјални моменти", image: "/g6.jpg" }
